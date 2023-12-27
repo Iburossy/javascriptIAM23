@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculatrice</title>
+  <style>
+    /* Styles pour les écrans larges (ordinateurs) */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+      background-color: burlywood;
+      padding-top: 0;
+    }
+  
+    .perso {
+      text-align: left;
+      background-color: white;
+      width: 23%;
+      padding: 2px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+  
+    p {
+      width: 15%;
+      font-weight: bold;
+      font-size: 18px;
+      color: white;
+      margin-top: 2%;
+      margin-bottom: 10px;
+      margin-left: 40%;
+      padding: 5px;
+      border-radius: 10px;
+      background-color: #007bff;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+      text-align: center;
+      font-family: Arial, sans-serif;
+      align-items: center;
+    }
+  
+    a {
+      background-color: black;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      width: 13%;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin: 2px;
+      transition-duration: 0.4s;
+      border-radius: 10px;
+      font-family: Arial, sans-serif;
+    }
+  
+    a:hover {
+      background-color: blue;
+    }
+  
+    /* Media queries pour les écrans de taille moyenne à petite */
+    @media only screen and (max-width: 768px) {
+      body {
+        margin: 20px;
+      }
+  
+      .perso {
+        width: 100%;
+      }
+  
+      p {
+        width: 100%;
+        margin-left: 0;
+      }
+  
+      a {
+        width: 100%;
+      }
+    }
+  
+  </style>
+  
+</head>
+<body>
+  <a href="https://github.com/Iburossy/Projet-calculatrice-javascript-IAM23-24.git" target="_blank">Mon Lien Github</a>
+  <section class="perso">
+    <h3>
+      INFOS PERSONNELLES <br>
+      NOM : DIALLO <br>
+      PRENOM : IBRAHIMA SORY <br>
+      CLASSE : BIG 2 <br>
+      CODE : 22 07 51
+    </h3>
+  </section>
+  <h2>Calculatrice</h2>
+
+  <form id="calculatorForm">
+    <label for="num1">Nombre 1:</label>
+    <input type="text" id="num1" placeholder="Entrez un nombre" required pattern="[0-9]+(\.[0-9]+)?">
+
+    <label for="num2">Nombre 2:</label>
+    <input type="text" id="num2" placeholder="Entrez un nombre" required pattern="[0-9]+(\.[0-9]+)?">
+
+    <button type="button" onclick="calculate()">Calculer</button>
+  </form>
+
+  <div id="result">
+    <!-- Les résultats des calculs sont affichés ici -->
+  </div>
+
+  <script>
+    function calculate() {
+      // Récupérer les valeurs des champs
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+
+      // Vérifier si les valeurs sont des nombres
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("Veuillez entrer des nombres valides.");
+        return;
+      }
+
+      // Vérifier la division par zéro
+      if (num2 === 0) {
+        alert("La division par zéro n'est pas autorisée.");
+        return;
+      }
+
+      // Effectuer les calculs
+      var sum = num1 + num2;
+      var product = num1 * num2;
+      var quotient = num1 / num2;
+      var difference = num1 - num2;
+
+      // Afficher les résultats
+      document.getElementById('result').innerHTML =
+        "<p>Somme: " + sum + "</p>" +
+        "<p>Produit: " + product + "</p>" +
+        "<p>Quotient: " + quotient + "</p>" +
+        "<p>Difference: " + difference + "</p>";
+    }
+  </script>
+</body>
+</html>
